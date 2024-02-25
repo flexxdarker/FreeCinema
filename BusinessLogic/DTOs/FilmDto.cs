@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLogic.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,9 @@ namespace BusinessLogic.DTOs
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Company { get; set; }
-        //public DateTime Date { get; set; }
+        public string? CompanyName { get; set; }
+        public DateTime Date { get; set; }
+        public string? CategoryName { get; set; }
         public int Year { get; set; }
     }
 }
