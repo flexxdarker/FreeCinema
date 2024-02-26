@@ -17,6 +17,6 @@ namespace DataAccess.Entities
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public int Year { get; set; }
-        //public int imageUrl { get; set; }
+        public string imageUrl { get; set; }
     }
 }

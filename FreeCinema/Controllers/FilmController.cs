@@ -9,29 +9,29 @@ namespace FreeCinema.Controllers
     [ApiController]
     public class FilmController : ControllerBase
     {
-        private readonly IFilmService productsService;
+        private readonly IFilmService filmService;
 
-        public FilmController(IFilmController productsService)
+        public FilmController(IFilmService filmService)
         {
-            this.productsService = productsService;
+            this.filmService = filmService;
         }
 
         [HttpGet("all")]
         public IActionResult Get()
         {
-            return Ok(productsService.GetAll());
+            return Ok(filmService.GetAll());
         }
 
         [HttpGet("{id:int}")]
         public IActionResult Get([FromRoute] int id)
         {
-            return Ok(productsService.Get(id));
+            return Ok(filmService.Get(id));
         }
 
         [HttpPost]
         public IActionResult Create([FromForm] FilmDto model)
         {
-            productsService.Create(model);
+            filmService.Create(model);
             return Ok();
         }
 
@@ -39,14 +39,14 @@ namespace FreeCinema.Controllers
         [HttpPut]
         public IActionResult Edit([FromBody] FilmDto model)
         {
-            productsService.Edit(model);
+            filmService.Edit(model);
             return Ok();
         }
 
         [HttpDelete("{id:int}")]
         public IActionResult Delete([FromRoute] int id)
         {
-            productsService.Delete(id);
+            filmService.Delete(id);
             return Ok();
         }
     }

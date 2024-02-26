@@ -61,7 +61,7 @@ namespace BusinessLogic {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Id must be positive.
         /// </summary>
         internal static string IdMustPositive {
             get {
@@ -70,7 +70,7 @@ namespace BusinessLogic {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Product not found.
         /// </summary>
         internal static string ProductNotFound {
             get {

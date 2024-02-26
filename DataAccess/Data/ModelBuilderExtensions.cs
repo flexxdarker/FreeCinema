@@ -14,8 +14,7 @@ namespace DataAccess.Data
         {
             builder.Entity<Film>().HasData(new[]
             {
-                new Film() { Id = 1, Company = "Universal Picture", Year = 2001, Name = "Fast&Furious 1"},
-                new Film() { Id = 2, Company = "Universal Picture", Year = 2003, Name = "Fast&Furious 2"},
+                new Film()
             });
         }
     }
