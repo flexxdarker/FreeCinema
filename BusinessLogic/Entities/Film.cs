@@ -18,5 +18,7 @@ namespace DataAccess.Entities
         public Category Category { get; set; }
         public int Year { get; set; }
         public string imageUrl { get; set; }
+        public int CinemaHallId { get; set; }
+        public Cinema_Hall? Cinema_Hall { get; set; }
     }
 }
