@@ -11,6 +11,6 @@ namespace BusinessLogic.Entities
         public int Id { get; set; }
         public int Number { get; set; }
         public int CinemaHallId { get; set; }
-        public Cinema_Hall? Cinema_Hall { get; set; }
+        public Cinema_Hall? Hall { get; set; }
     }
 }

@@ -13,12 +13,10 @@ namespace DataAccess.Entities
         public string Name { get; set; }
         public int CompanyId { get; set; }
         public Company? Company { get; set; }
-        public DateTime Date { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public int Year { get; set; }
         public string imageUrl { get; set; }
-        public int CinemaHallId { get; set; }
-        public Cinema_Hall? Cinema_Hall { get; set; }
+        public ICollection<Cinema_Hall> Halls { get; set; }
     }
 }
