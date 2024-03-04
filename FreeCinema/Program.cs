@@ -55,7 +55,7 @@ namespace FreeCinema
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseMiddleware<GlobalErrorHandler>();
+            //app.UseMiddleware<GlobalErrorHandler>();
 
             app.UseAuthorization();
 

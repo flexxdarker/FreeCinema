@@ -13,7 +13,7 @@ namespace BusinessLogic.Entities
         public DateTime DateTime { get; set; }
         public int FilmId { get; set; }
         public Film Film { get; set; }
-        public int CinemaHallId { get; set; }
+        public int Cinema_HallId { get; set; }
         public Cinema_Hall Cinema_Hall { get; set; }
     }
 }

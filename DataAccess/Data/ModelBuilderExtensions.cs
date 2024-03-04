@@ -42,25 +42,25 @@ namespace DataAccess.Data
             });
             builder.Entity<Place>().HasData(new[]
             {
-                new Place() {Id = 1, CinemaHallId = 1, Number = 1}, new Place() {Id = 2, CinemaHallId = 1, Number = 2},
-                new Place() {Id = 4, CinemaHallId = 1, Number = 4}, new Place() {Id = 3, CinemaHallId = 1, Number = 3},
-                new Place() {Id = 5, CinemaHallId = 1, Number = 5}, new Place() {Id = 6, CinemaHallId = 1, Number = 6},
-                new Place() {Id = 7, CinemaHallId = 1, Number = 7}, new Place() {Id = 8, CinemaHallId = 1, Number = 8},
-                new Place() {Id = 9, CinemaHallId = 1, Number = 9}, new Place() {Id = 10, CinemaHallId = 1, Number = 10},
-                new Place() {Id = 11, CinemaHallId = 1, Number = 11}, new Place() {Id = 12, CinemaHallId = 1, Number = 12},
-                new Place() {Id = 13, CinemaHallId = 1, Number = 13}, new Place() {Id = 14, CinemaHallId = 1, Number = 14},
-                new Place() {Id = 15, CinemaHallId = 1, Number = 15}, new Place() {Id = 16, CinemaHallId = 1, Number = 16},
-                new Place() {Id = 17, CinemaHallId = 1, Number = 17}, new Place() {Id = 18, CinemaHallId = 1, Number = 18},
-                new Place() {Id = 19, CinemaHallId = 1, Number = 19}, new Place() {Id = 20, CinemaHallId = 1, Number = 20},
-                new Place() {Id = 21, CinemaHallId = 1, Number = 21}, new Place() {Id = 22, CinemaHallId = 1, Number = 22},
-                new Place() {Id = 23, CinemaHallId = 1, Number = 23}, new Place() {Id = 24, CinemaHallId = 1, Number = 24},
-                new Place() {Id = 25, CinemaHallId = 1, Number = 25}, new Place() {Id = 26, CinemaHallId = 1, Number = 26},
-                new Place() {Id = 27, CinemaHallId = 1, Number = 27}, new Place() {Id = 28, CinemaHallId = 1, Number = 28},
-                new Place() {Id = 29, CinemaHallId = 1, Number = 29}, new Place() {Id = 30, CinemaHallId = 1, Number = 30},
+                new Place() {Id = 1, Cinema_HallId = 1, Number = 1}, new Place() {Id = 2, Cinema_HallId = 1, Number = 2},
+                new Place() {Id = 4, Cinema_HallId = 1, Number = 4}, new Place() {Id = 3, Cinema_HallId = 1, Number = 3},
+                new Place() {Id = 5, Cinema_HallId = 1, Number = 5}, new Place() {Id = 6, Cinema_HallId = 1, Number = 6},
+                new Place() {Id = 7, Cinema_HallId = 1, Number = 7}, new Place() {Id = 8, Cinema_HallId = 1, Number = 8},
+                new Place() {Id = 9, Cinema_HallId = 1, Number = 9}, new Place() {Id = 10, Cinema_HallId = 1, Number = 10},
+                new Place() {Id = 11, Cinema_HallId = 1, Number = 11}, new Place() {Id = 12, Cinema_HallId = 1, Number = 12},
+                new Place() {Id = 13, Cinema_HallId = 1, Number = 13}, new Place() {Id = 14, Cinema_HallId = 1, Number = 14},
+                new Place() {Id = 15, Cinema_HallId = 1, Number = 15}, new Place() {Id = 16, Cinema_HallId = 1, Number = 16},
+                new Place() {Id = 17, Cinema_HallId = 1, Number = 17}, new Place() {Id = 18, Cinema_HallId = 1, Number = 18},
+                new Place() {Id = 19, Cinema_HallId = 1, Number = 19}, new Place() {Id = 20, Cinema_HallId = 1, Number = 20},
+                new Place() {Id = 21, Cinema_HallId = 1, Number = 21}, new Place() {Id = 22, Cinema_HallId = 1, Number = 22},
+                new Place() {Id = 23, Cinema_HallId = 1, Number = 23}, new Place() {Id = 24, Cinema_HallId = 1, Number = 24},
+                new Place() {Id = 25, Cinema_HallId = 1, Number = 25}, new Place() {Id = 26, Cinema_HallId = 1, Number = 26},
+                new Place() {Id = 27, Cinema_HallId = 1, Number = 27}, new Place() {Id = 28, Cinema_HallId = 1, Number = 28},
+                new Place() {Id = 29, Cinema_HallId = 1, Number = 29}, new Place() {Id = 30, Cinema_HallId = 1, Number = 30},
             });
             builder.Entity<Sessions>().HasData(new[] 
             { 
-                new Sessions() {Id = 1, CinemaHallId = 1, FilmId = 1, DateTime = new DateTime(2024, 03, 15, 19, 20, 59)}
+                new Sessions() {Id = 1, Cinema_HallId = 1, FilmId = 1, DateTime = new DateTime(2024, 03, 15, 19, 20, 59)}
             });
         }
     }
