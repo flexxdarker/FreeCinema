@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Entities
 {
-    public class Cinema_Hall
+    public class CinemaHall
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Place>? Places { get; set; }
+        public ICollection<Session>? Sessions { get; set; }
     }
 }

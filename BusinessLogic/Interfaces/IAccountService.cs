@@ -1,9 +1,4 @@
 ﻿using BusinessLogic.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic.Interfaces
 {
@@ -11,7 +6,7 @@ namespace BusinessLogic.Interfaces
     {
         Task Register(RegisterModel model);
         Task Login(LoginModel model);
-        Task Logout();
+        Task Logout(string refreshToken);
 
         //Task<ResetToken> GenerageResetToken(string email);
         //Task ResetPassword(ResetPasswordModel model);

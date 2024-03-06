@@ -4,6 +4,7 @@ using DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    partial class CinemaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240306180206_robe")]
+    partial class robe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +39,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -86,7 +89,7 @@ namespace DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BusinessLogic.Entities.Cinema_Hall", b =>
+            modelBuilder.Entity("BusinessLogic.Entities.CinemaHall", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -105,13 +108,13 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("FilmId");
 
-                    b.ToTable("Cinema_Hall");
+                    b.ToTable("CinemaHalls");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Name = ""
+                            Name = "First Hall"
                         });
                 });
 
@@ -136,7 +139,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Company");
+                    b.ToTable("Companies");
 
                     b.HasData(
                         new
@@ -177,7 +180,7 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Cinema_HallId")
+                    b.Property<int>("CinemaHallId")
                         .HasColumnType("int");
 
                     b.Property<int>("Number")
@@ -185,194 +188,194 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Cinema_HallId");
+                    b.HasIndex("CinemaHallId");
 
-                    b.ToTable("Place");
+                    b.ToTable("Places");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 1
                         },
                         new
                         {
                             Id = 2,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 2
                         },
                         new
                         {
                             Id = 4,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 4
                         },
                         new
                         {
                             Id = 3,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 3
                         },
                         new
                         {
                             Id = 5,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 5
                         },
                         new
                         {
                             Id = 6,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 6
                         },
                         new
                         {
                             Id = 7,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 7
                         },
                         new
                         {
                             Id = 8,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 8
                         },
                         new
                         {
                             Id = 9,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 9
                         },
                         new
                         {
                             Id = 10,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 10
                         },
                         new
                         {
                             Id = 11,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 11
                         },
                         new
                         {
                             Id = 12,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 12
                         },
                         new
                         {
                             Id = 13,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 13
                         },
                         new
                         {
                             Id = 14,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 14
                         },
                         new
                         {
                             Id = 15,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 15
                         },
                         new
                         {
                             Id = 16,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 16
                         },
                         new
                         {
                             Id = 17,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 17
                         },
                         new
                         {
                             Id = 18,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 18
                         },
                         new
                         {
                             Id = 19,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 19
                         },
                         new
                         {
                             Id = 20,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 20
                         },
                         new
                         {
                             Id = 21,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 21
                         },
                         new
                         {
                             Id = 22,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 22
                         },
                         new
                         {
                             Id = 23,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 23
                         },
                         new
                         {
                             Id = 24,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 24
                         },
                         new
                         {
                             Id = 25,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 25
                         },
                         new
                         {
                             Id = 26,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 26
                         },
                         new
                         {
                             Id = 27,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 27
                         },
                         new
                         {
                             Id = 28,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 28
                         },
                         new
                         {
                             Id = 29,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 29
                         },
                         new
                         {
                             Id = 30,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             Number = 30
                         });
                 });
 
-            modelBuilder.Entity("BusinessLogic.Entities.Sessions", b =>
+            modelBuilder.Entity("BusinessLogic.Entities.Session", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -380,7 +383,7 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Cinema_HallId")
+                    b.Property<int>("CinemaHallId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateTime")
@@ -391,7 +394,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Cinema_HallId");
+                    b.HasIndex("CinemaHallId");
 
                     b.HasIndex("FilmId");
 
@@ -401,7 +404,7 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Cinema_HallId = 1,
+                            CinemaHallId = 1,
                             DateTime = new DateTime(2024, 3, 15, 19, 20, 59, 0, DateTimeKind.Unspecified),
                             FilmId = 1
                         });
@@ -511,14 +514,14 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Film");
+                    b.ToTable("Films");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CompanyId = 5,
+                            CompanyId = 1,
                             Name = "Fast&Furious",
                             Year = 2001,
                             imageUrl = "https://wallpaperaccess.com/full/1494975.jpg"
@@ -658,39 +661,39 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BusinessLogic.Entities.Cinema_Hall", b =>
+            modelBuilder.Entity("BusinessLogic.Entities.CinemaHall", b =>
                 {
                     b.HasOne("DataAccess.Entities.Film", null)
-                        .WithMany("Halls")
+                        .WithMany("CinemaHalls")
                         .HasForeignKey("FilmId");
                 });
 
             modelBuilder.Entity("BusinessLogic.Entities.Place", b =>
                 {
-                    b.HasOne("BusinessLogic.Entities.Cinema_Hall", "Hall")
+                    b.HasOne("BusinessLogic.Entities.CinemaHall", "CinemaHall")
                         .WithMany("Places")
-                        .HasForeignKey("Cinema_HallId")
+                        .HasForeignKey("CinemaHallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Hall");
+                    b.Navigation("CinemaHall");
                 });
 
-            modelBuilder.Entity("BusinessLogic.Entities.Sessions", b =>
+            modelBuilder.Entity("BusinessLogic.Entities.Session", b =>
                 {
-                    b.HasOne("BusinessLogic.Entities.Cinema_Hall", "Cinema_Hall")
-                        .WithMany()
-                        .HasForeignKey("Cinema_HallId")
+                    b.HasOne("BusinessLogic.Entities.CinemaHall", "CinemaHall")
+                        .WithMany("Sessions")
+                        .HasForeignKey("CinemaHallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DataAccess.Entities.Film", "Film")
-                        .WithMany()
+                        .WithMany("Sessions")
                         .HasForeignKey("FilmId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Cinema_Hall");
+                    b.Navigation("CinemaHall");
 
                     b.Navigation("Film");
                 });
@@ -774,9 +777,11 @@ namespace DataAccess.Migrations
                     b.Navigation("Films");
                 });
 
-            modelBuilder.Entity("BusinessLogic.Entities.Cinema_Hall", b =>
+            modelBuilder.Entity("BusinessLogic.Entities.CinemaHall", b =>
                 {
                     b.Navigation("Places");
+
+                    b.Navigation("Sessions");
                 });
 
             modelBuilder.Entity("BusinessLogic.Entities.Company", b =>
@@ -791,7 +796,9 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entities.Film", b =>
                 {
-                    b.Navigation("Halls");
+                    b.Navigation("CinemaHalls");
+
+                    b.Navigation("Sessions");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogic.DTOs;
+using BusinessLogic.Entities;
 using BusinessLogic.Interfaces;
 using DataAccess.Entities;
 using DataAccess.Repostories;
@@ -9,59 +10,58 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BusinessLogic.Services
 {
-    public class FilmService : IFilmService
+    internal class SessionService : ISessionService
     {
         private readonly IMapper mapper;
-        private readonly IRepository<Film> filmR;
-        public FilmService(IMapper mapper, IRepository<Film> filmR)
+        private readonly IRepository<Session> sessionR;
+        public SessionService(IMapper mapper, IRepository<Session> sessionR)
         {
             this.mapper = mapper;
-            this.filmR = filmR;
+            this.sessionR = sessionR;
         }
 
-        public void Create(CreateFilmModel film)
+        public void Create(SessionDto session)
         {
-            filmR.Insert(mapper.Map<Film>(film));
-            filmR.Save();
+            sessionR.Insert(mapper.Map<Session>(sessionR));
+            sessionR.Save();
         }
 
         public void Delete(int id)
         {
             if (id < 0) throw new HttpException(Errors.IdMustPositive, HttpStatusCode.BadRequest);
 
-            var film = filmR.GetByID(id);
+            var film = sessionR.GetByID(id);
 
             if (film == null) throw new HttpException(Errors.ProductNotFound, HttpStatusCode.NotFound);
 
-            filmR.Delete(film);
-            filmR.Save();
+            sessionR.Delete(film);
+            sessionR.Save();
         }
 
-        public void Edit(FilmDto film)
+        public void Edit(SessionDto session)
         {
-            filmR.Update(mapper.Map<Film>(film));
-            filmR.Save();
+            sessionR.Update(mapper.Map<Session>(session));
+            sessionR.Save();
         }
 
-        public FilmDto? Get(int id)
+        public SessionDto? Get(int id)
         {
             if (id < 0) throw new HttpException(Errors.IdMustPositive, HttpStatusCode.BadRequest);
 
-            var item = filmR.GetByID(id);
+            var item = sessionR.GetByID(id);
             if (item == null) throw new HttpException(Errors.ProductNotFound, HttpStatusCode.NotFound);
 
-            var dto = mapper.Map<FilmDto>(item);
+            var dto = mapper.Map<SessionDto>(item);
 
             return dto;
         }
 
-        public IEnumerable<FilmDto> GetAll()
+        public IEnumerable<SessionDto> GetAll()
         {
-            return mapper.Map<List<FilmDto>>(filmR.GetAll());
+            return mapper.Map<List<SessionDto>>(sessionR.GetAll());
         }
     }
 }

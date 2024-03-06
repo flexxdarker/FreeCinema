@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Interfaces
 {
-    public interface IFilmService
+    public interface ISessionService
     {
-        IEnumerable<FilmDto> GetAll();
-        FilmDto? Get(int id);
-        void Create(CreateFilmModel product);
-        void Edit(FilmDto product);
+        IEnumerable<SessionDto> GetAll();
+        SessionDto? Get(int id);
+        void Create(SessionDto product);
+        void Edit(SessionDto product);
         void Delete(int id);
     }
 }

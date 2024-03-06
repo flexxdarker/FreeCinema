@@ -14,10 +14,10 @@ namespace DataAccess.Data.Configurations
 		public void Configure(EntityTypeBuilder<Film> builder)
 		{
 			builder.HasKey(x => x.Id);
-			builder.ToTable("Categories");
 			builder.HasOne(x=>x.Company).WithMany(x=>x.Films).HasForeignKey(x=>x.CompanyId);
 			builder.HasOne(x => x.Category).WithMany(x => x.Films).HasForeignKey(x => x.CategoryId);
-
+			builder.HasMany(x=>x.Sessions).WithOne(x=>x.Film).HasForeignKey(x=>x.FilmId);
+			//builder.ToTable("Films");
 		}
 	}
 }

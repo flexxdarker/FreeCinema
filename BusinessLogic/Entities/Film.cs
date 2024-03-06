@@ -15,8 +15,9 @@ namespace DataAccess.Entities
         public Company? Company { get; set; }
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
+        public ICollection<Session> Sessions { get; set; }
         public int Year { get; set; }
         public string imageUrl { get; set; }
-        public ICollection<Cinema_Hall> Halls { get; set; }
+        public ICollection<CinemaHall> CinemaHalls { get; set; }
     }
 }

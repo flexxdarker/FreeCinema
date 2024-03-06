@@ -12,5 +12,6 @@ namespace BusinessLogic.Entities
     {
         public DateTime Birthdate { get; set; }
         public ICollection<Film>? Films { get; set; }
+        public ICollection<RefreshToken>? RefreshTokens { get; set; }
     }
 }

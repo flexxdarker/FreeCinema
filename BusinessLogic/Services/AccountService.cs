@@ -2,6 +2,7 @@
 using BusinessLogic.DTOs;
 using BusinessLogic.Entities;
 using BusinessLogic.Interfaces;
+using DataAccess.Repostories;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -17,13 +18,15 @@ namespace BusinessLogic.Services
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly IMapper mapper;
-
+        private readonly IRepository<RefreshToken> refreshTokenR;
         public AccountsService(UserManager<User> userManager,
                                 SignInManager<User> signInManager,
-                                IMapper mapper)
+                                IRepository<RefreshToken> refreshTokenR
+                                ,IMapper mapper)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.refreshTokenR = refreshTokenR;
             this.mapper = mapper;
         }
 
@@ -54,8 +57,33 @@ namespace BusinessLogic.Services
 
             await signInManager.SignInAsync(user, true);
         }
+        public async Task<UserTokens> RefreshTokens(UserTokens userTokens)
+        {
+            var refrestToken = await refreshTokenR.GetItemBySpec(new RefreshTokenSpecs.ByToken(userTokens.RefreshToken));
 
-        public async Task Logout()
+            if (refrestToken == null)
+                throw new HttpException(Errors.InvalidToken, HttpStatusCode.BadRequest);
+
+            var claims = jwtService.GetClaimsFromExpiredToken(userTokens.AccessToken);
+            var newAccessToken = jwtService.CreateToken(claims);
+            var newRefreshToken = jwtService.CreateRefreshToken();
+
+            refrestToken.Token = newRefreshToken;
+
+            // TODO: update creation time
+            refreshTokenR.Update(refrestToken);
+            refreshTokenR.Save();
+
+            var tokens = new UserTokens()
+            {
+                AccessToken = newAccessToken,
+                RefreshToken = newRefreshToken
+            };
+
+            return tokens;
+        }
+
+        public async Task Logout(string refreshToken)
         {
             await signInManager.SignOutAsync();
         }

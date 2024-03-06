@@ -16,10 +16,7 @@ namespace BusinessLogic.Validators
                 .NotEmpty()
                 .MinimumLength(5)
                 .Matches("[A-Z].*").WithMessage("{PropertyName} must starts with uppercase letter");
-            RuleFor(x => x.Date)
-                .NotEmpty()
-                .GreaterThan(new DateTime(1900, 1, 1)).WithMessage("Birthdate must be bigger that 1900")
-                .LessThan(DateTime.Now).WithMessage("You from future?)");
+            
             RuleFor(x => x.ImageUrl)
                 .NotEmpty()
                 .Must(LinkMustBeAUrl).WithMessage("{PropertyName} must be correct Url");

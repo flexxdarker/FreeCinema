@@ -10,7 +10,7 @@ namespace BusinessLogic.Entities
     {
         public int Id { get; set; }
         public int Number { get; set; }
-        public int Cinema_HallId { get; set; }
-        public Cinema_Hall? Hall { get; set; }
+        public int CinemaHallId { get; set; }
+        public CinemaHall? CinemaHall { get; set; }
     }
 }
