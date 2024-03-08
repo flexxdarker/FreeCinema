@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessLogic.DTOs;
 using BusinessLogic.Interfaces;
+using BusinessLogic.Specifications;
 using DataAccess.Entities;
 using DataAccess.Repostories;
 using System;
@@ -29,11 +30,11 @@ namespace BusinessLogic.Services
             filmR.Save();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             if (id < 0) throw new HttpException(Errors.IdMustPositive, HttpStatusCode.BadRequest);
 
-            var film = filmR.GetByID(id);
+            var film = await filmR.GetListBySpec(new FilmSpecs.ById(id));
 
             if (film == null) throw new HttpException(Errors.ProductNotFound, HttpStatusCode.NotFound);
 
@@ -47,11 +48,11 @@ namespace BusinessLogic.Services
             filmR.Save();
         }
 
-        public FilmDto? Get(int id)
+        public async Task<FilmDto?> Get(int id)
         {
             if (id < 0) throw new HttpException(Errors.IdMustPositive, HttpStatusCode.BadRequest);
 
-            var item = filmR.GetByID(id);
+            var item = await filmR.GetItemBySpec(new FilmSpecs.ById(id));
             if (item == null) throw new HttpException(Errors.ProductNotFound, HttpStatusCode.NotFound);
 
             var dto = mapper.Map<FilmDto>(item);
@@ -59,9 +60,9 @@ namespace BusinessLogic.Services
             return dto;
         }
 
-        public IEnumerable<FilmDto> GetAll()
+        public async Task<IEnumerable<FilmDto>> GetAll()
         {
-            return mapper.Map<List<FilmDto>>(filmR.GetAll());
+            return mapper.Map<List<FilmDto>>(await filmR.GetListBySpec(new FilmSpecs.All()));
         }
     }
 }

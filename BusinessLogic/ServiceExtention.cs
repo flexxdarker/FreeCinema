@@ -31,7 +31,7 @@ namespace BusinessLogic
         public static void AddCustomServices(this IServiceCollection services)
         {
             services.AddScoped<IFilmService, FilmService>();
-            
+            services.AddScoped<ISessionService, SessionService>();
         }
 
     }

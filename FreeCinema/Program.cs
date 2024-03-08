@@ -21,10 +21,9 @@ namespace FreeCinema
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            // TODO: configure swagger with JWT 
             builder.Services.AddSwaggerGen();
-            //builder.Services.AddJWT(builder.Configuration);
-            //builder.Services.AddRequirements();
+            builder.Services.AddJWT(builder.Configuration);
+            builder.Services.AddRequirements();
 
             builder.Services.AddDbContext(connStr);
             builder.Services.AddIdentity();
@@ -34,8 +33,6 @@ namespace FreeCinema
             builder.Services.AddFluentValidators();
 
             builder.Services.AddCustomServices();
-            //builder.Services.AddScoped<ICartService, CartService>();
-            //builder.Services.AddScoped<IViewRender, ViewRender>();
 
             var app = builder.Build();
 

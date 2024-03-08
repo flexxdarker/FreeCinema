@@ -7,12 +7,9 @@ namespace BusinessLogic.Interfaces
         Task Register(RegisterModel model);
         Task Login(LoginModel model);
         Task Logout(string refreshToken);
-
-        //Task<ResetToken> GenerageResetToken(string email);
-        //Task ResetPassword(ResetPasswordModel model);
+        Task<UserTokens> RefreshTokens(UserTokens tokens);
     }
 
-    // TODO: create endpoints for resetting user password 
     public class ResetToken
     {
         public string Token { get; set; }

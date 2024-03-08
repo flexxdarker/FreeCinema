@@ -2,6 +2,7 @@
 using BusinessLogic.DTOs;
 using BusinessLogic.Entities;
 using BusinessLogic.Interfaces;
+using BusinessLogic.Specifications;
 using DataAccess.Entities;
 using DataAccess.Repostories;
 using System;
@@ -29,11 +30,11 @@ namespace BusinessLogic.Services
             sessionR.Save();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             if (id < 0) throw new HttpException(Errors.IdMustPositive, HttpStatusCode.BadRequest);
 
-            var film = sessionR.GetByID(id);
+            var film = await sessionR.GetItemBySpec(new SessionSpecs.ById(id));
 
             if (film == null) throw new HttpException(Errors.ProductNotFound, HttpStatusCode.NotFound);
 
@@ -47,11 +48,11 @@ namespace BusinessLogic.Services
             sessionR.Save();
         }
 
-        public SessionDto? Get(int id)
+        public async Task<SessionDto?> Get(int id)
         {
             if (id < 0) throw new HttpException(Errors.IdMustPositive, HttpStatusCode.BadRequest);
 
-            var item = sessionR.GetByID(id);
+            var item = await sessionR.GetItemBySpec(new SessionSpecs.ById(id));
             if (item == null) throw new HttpException(Errors.ProductNotFound, HttpStatusCode.NotFound);
 
             var dto = mapper.Map<SessionDto>(item);
@@ -59,9 +60,9 @@ namespace BusinessLogic.Services
             return dto;
         }
 
-        public IEnumerable<SessionDto> GetAll()
+        public async Task<IEnumerable<SessionDto>> GetAll()
         {
-            return mapper.Map<List<SessionDto>>(sessionR.GetAll());
+            return mapper.Map<IEnumerable<SessionDto>>(await sessionR.GetListBySpec(new SessionSpecs.All()));
         }
     }
 }

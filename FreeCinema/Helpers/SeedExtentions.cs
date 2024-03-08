@@ -1,4 +1,6 @@
 ﻿using BusinessLogic.Entities;
+using FreeCinema.Requirements;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
 namespace FreeCinema.Helpers
@@ -23,7 +25,10 @@ namespace FreeCinema.Helpers
                 }
             }
         }
-
+        public static void AddRequirements(this IServiceCollection services)
+        {
+            services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();
+        }
         public static async Task SeedAdmin(this IServiceProvider app)
         {
             var userManager = app.GetRequiredService<UserManager<User>>();

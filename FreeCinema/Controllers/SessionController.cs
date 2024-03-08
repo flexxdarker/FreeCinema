@@ -16,15 +16,15 @@ namespace FreeCinema.Controllers
             this.sessionService = sessionService;
         }
         [HttpGet("all")]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(sessionService.GetAll());
+            return Ok(await sessionService.GetAll());
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult Get([FromRoute] int id)
+        public async Task<IActionResult> Get([FromRoute] int id)
         {
-            return Ok(sessionService.Get(id));
+            return Ok(await sessionService.Get(id));
         }
 
         [HttpPost]
@@ -43,9 +43,9 @@ namespace FreeCinema.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult Delete([FromRoute] int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            sessionService.Delete(id);
+            await sessionService.Delete(id);
             return Ok();
         }
     }

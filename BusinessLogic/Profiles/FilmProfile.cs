@@ -21,6 +21,11 @@ namespace BusinessLogic.Profiles
 
             CreateMap<RegisterModel, User>()
                 .ForMember(x => x.UserName, opts => opts.MapFrom(s => s.Email));
+
+            CreateMap<SessionDto, Session>()
+                .ForMember(x => x.CinemaHall, opt => opt.Ignore())
+                .ForMember(x => x.Film, opt => opt.Ignore());
+            CreateMap<Session, SessionDto>();
         }
     }
 }

@@ -2,6 +2,7 @@
 using BusinessLogic.DTOs;
 using BusinessLogic.Entities;
 using BusinessLogic.Interfaces;
+using BusinessLogic.Specifications;
 using DataAccess.Repostories;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -18,16 +19,19 @@ namespace BusinessLogic.Services
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly IMapper mapper;
+        private readonly IJwtService jwtService;
         private readonly IRepository<RefreshToken> refreshTokenR;
         public AccountsService(UserManager<User> userManager,
                                 SignInManager<User> signInManager,
-                                IRepository<RefreshToken> refreshTokenR
-                                ,IMapper mapper)
+                                IRepository<RefreshToken> refreshTokenR, 
+                                IMapper mapper,
+                                IJwtService jwtService)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.refreshTokenR = refreshTokenR;
             this.mapper = mapper;
+            this.jwtService = jwtService;
         }
 
         public async Task Register(RegisterModel model)

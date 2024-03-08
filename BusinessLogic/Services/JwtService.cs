@@ -16,7 +16,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BusinessLogic.Services
 {
-    public class JwtService : IJwtService
+    internal class JwtService : IJwtService
     {
         private readonly IConfiguration configuration;
         private readonly UserManager<User> userManager;
@@ -50,7 +50,7 @@ namespace BusinessLogic.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.DateOfBirth, user.Birthdate.ToString())
+                new Claim(ClaimTypes.DateOfBirth, user.Birthdate.ToString()),
             };
 
             var roles = userManager.GetRolesAsync(user).Result;
@@ -93,6 +93,11 @@ namespace BusinessLogic.Services
             }
 
             return jwtSecurityToken.Claims;
+        }
+
+        public DateTime GetLastValidRefreshTokenDate()
+        {
+            return DateTime.UtcNow.AddDays(-jwtOptions.RefreshTokenLifetimeInDays);
         }
     }
 }
