@@ -34,7 +34,7 @@ namespace DataAccess.Data
             });
             builder.Entity<Film>().HasData(new[]
             {
-                new Film() {Id = 1, Name = "Fast&Furious", CategoryId = (int)Categories.Action, CompanyId = 1, Year = 2001, imageUrl = "https://wallpaperaccess.com/full/1494975.jpg"}
+                new Film() {Id = 1, Name = "Fast&Furious", CategoryId = (int)Categories.Action, CompanyId = 1, Year = 2001, ImageUrl = "https://wallpaperaccess.com/full/1494975.jpg"}
             });
             builder.Entity<CinemaHall>().HasData(new[]
             {

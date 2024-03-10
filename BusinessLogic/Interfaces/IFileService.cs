@@ -9,7 +9,7 @@ namespace BusinessLogic.Interfaces
 {
     public interface IFileService
     {
-        Task<string> SaveProductImage(IFormFile file);
+        Task<string> SaveFilmImage(IFormFile file);
         Task DeleteProductImage(string path);
     }
 }

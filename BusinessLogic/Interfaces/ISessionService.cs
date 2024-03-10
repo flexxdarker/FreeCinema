@@ -11,7 +11,7 @@ namespace BusinessLogic.Interfaces
     {
         Task<IEnumerable<SessionDto>> GetAll();
         Task<SessionDto?> Get(int id);
-        void Create(SessionDto product);
+        void Create(CreateSessionModel product);
         void Edit(SessionDto product);
         Task Delete(int id);
     }

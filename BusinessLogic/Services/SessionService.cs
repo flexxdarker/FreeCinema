@@ -24,7 +24,7 @@ namespace BusinessLogic.Services
             this.sessionR = sessionR;
         }
 
-        public void Create(SessionDto session)
+        public void Create(CreateSessionModel session)
         {
             sessionR.Insert(mapper.Map<Session>(sessionR));
             sessionR.Save();

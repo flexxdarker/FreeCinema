@@ -18,6 +18,8 @@ namespace BusinessLogic.Profiles
             CreateMap<FilmDto, Film>()
                 .ForMember(x => x.Category, opt => opt.Ignore());
             CreateMap<Film, FilmDto>();
+            CreateMap<CreateFilmModel, Film>()
+                .ForMember(x => x.ImageUrl, opt => opt.MapFrom(src => fileService.SaveFilmImage(src.ImageUrl).Result));
 
             CreateMap<RegisterModel, User>()
                 .ForMember(x => x.UserName, opts => opts.MapFrom(s => s.Email));
@@ -26,6 +28,7 @@ namespace BusinessLogic.Profiles
                 .ForMember(x => x.CinemaHall, opt => opt.Ignore())
                 .ForMember(x => x.Film, opt => opt.Ignore());
             CreateMap<Session, SessionDto>();
+            CreateMap<CreateSessionModel, Session>();
         }
     }
 }

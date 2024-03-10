@@ -24,7 +24,7 @@ namespace BusinessLogic.Services
             throw new NotImplementedException();
         }
 
-        public async Task<string> SaveProductImage(IFormFile file)
+        public async Task<string> SaveFilmImage(IFormFile file)
         {
             // get image destination path
             string root = environment.WebRootPath;      // wwwroot
