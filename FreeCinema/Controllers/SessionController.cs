@@ -30,6 +30,7 @@ namespace FreeCinema.Controllers
             return Ok(await sessionService.Get(id));
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpPost]
         public IActionResult Create([FromForm] CreateSessionModel model)
         {
@@ -37,7 +38,7 @@ namespace FreeCinema.Controllers
             return Ok();
         }
 
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpPut]
         public IActionResult Edit([FromBody] SessionDto model)
         {

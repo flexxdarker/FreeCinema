@@ -1,5 +1,8 @@
 ﻿using BusinessLogic.DTOs;
 using BusinessLogic.Interfaces;
+using FreeCinema.Helpers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +31,7 @@ namespace FreeCinema.Controllers
             return Ok(await filmService.Get(id));
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpPost]
         public IActionResult Create([FromForm] CreateFilmModel model)
         {
@@ -35,7 +39,7 @@ namespace FreeCinema.Controllers
             return Ok();
         }
 
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpPut]
         public IActionResult Edit([FromBody] FilmDto model)
         {
@@ -43,6 +47,7 @@ namespace FreeCinema.Controllers
             return Ok();
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
