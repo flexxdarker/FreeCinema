@@ -11,7 +11,6 @@ namespace BusinessLogic.Entities
     public class User : IdentityUser
     {
         public DateTime Birthdate { get; set; }
-        public ICollection<Film>? Films { get; set; }
         public ICollection<RefreshToken>? RefreshTokens { get; set; }
     }
 }
