@@ -31,7 +31,7 @@ namespace FreeCinema.Controllers
             return Ok(await filmService.Get(id));
         }
 
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpPost]
         public IActionResult Create([FromForm] CreateFilmModel model)
         {

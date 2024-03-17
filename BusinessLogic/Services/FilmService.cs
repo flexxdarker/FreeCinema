@@ -60,6 +60,11 @@ namespace BusinessLogic.Services
             return dto;
         }
 
+        public async Task<IEnumerable<FilmDto>> Get(IEnumerable<int> ids)
+        {
+            return mapper.Map<List<FilmDto>>(await filmR.GetListBySpec(new FilmSpecs.ByIds(ids)));
+        }
+
         public async Task<IEnumerable<FilmDto>> GetAll()
         {
             return mapper.Map<List<FilmDto>>(await filmR.GetListBySpec(new FilmSpecs.All()));

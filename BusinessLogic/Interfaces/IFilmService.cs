@@ -10,6 +10,7 @@ namespace BusinessLogic.Interfaces
     public interface IFilmService
     {
         Task<IEnumerable<FilmDto>> GetAll();
+        Task<IEnumerable<FilmDto>> Get(IEnumerable<int> ids);
         Task<FilmDto?> Get(int id);
         void Create(CreateFilmModel product);
         void Edit(FilmDto product);
