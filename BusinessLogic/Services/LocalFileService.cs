@@ -26,24 +26,28 @@ namespace BusinessLogic.Services
 
         public async Task<string> SaveFilmImage(IFormFile file)
         {
+
+
             // get image destination path
-            string root = environment.WebRootPath;      // wwwroot
-            string name = Guid.NewGuid().ToString();    // random name
-            string extension = Path.GetExtension(file.FileName); // get original extension
-            string fullName = name + extension;         // full name: name.ext
+            //string root = environment.WebRootPath;      // wwwroot
+            //string name = Guid.NewGuid().ToString();    // random name
+            //string extension = Path.GetExtension(file.FileName); // get original extension
+            //string fullName = name + extension;         // full name: name.ext
 
-            // create destination image file path
-            string imagePath = Path.Combine(imageFolder, fullName);
-            string imageFullPath = Path.Combine(root, imagePath);
+            //Directory.CreateDirectory(Path.Combine(root, imageFolder));
 
-            // save image on the folder
-            using (FileStream fs = new FileStream(imageFullPath, FileMode.Create))
-            {
-                await file.CopyToAsync(fs);
-            }
+            //// create destination image file path
+            //string imagePath = Path.Combine(imageFolder, fullName);
+            //string imageFullPath = Path.Combine(root, imagePath);
+
+            //// save image on the folder
+            //using (FileStream fs = new FileStream(imageFullPath, FileMode.Create))
+            //{
+            //    await file.CopyToAsync(fs);
+            //}
 
             // return image file path
-            return Path.DirectorySeparatorChar + imagePath;
+            return "https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image-840x525.jpg"; //Path.DirectorySeparatorChar + imagePath;
         }
     }
 }

@@ -52,14 +52,20 @@ namespace BusinessLogic.Services
                 throw new HttpException(string.Join(" ", result.Errors.Select(x => x.Description)), HttpStatusCode.BadRequest);
         }
 
-        public async Task Login(LoginModel model)
+        public async Task<LoginResponseDto> Login(LoginModel model)
         {
             var user = await userManager.FindByEmailAsync(model.Email);
 
             if (user == null || !await userManager.CheckPasswordAsync(user, model.Password))
                 throw new HttpException("Invalid user login or password.", HttpStatusCode.BadRequest);
 
-            await signInManager.SignInAsync(user, true);
+            //await signInManager.SignInAsync(user, true);
+            
+            return new LoginResponseDto
+            {
+                AccessToken = jwtService.CreateToken(jwtService.GetClaims(user)),
+                RefreshToken = CreateRefreshToken(user.Id).Token
+            };
         }
         public async Task<UserTokens> RefreshTokens(UserTokens userTokens)
         {
@@ -85,6 +91,23 @@ namespace BusinessLogic.Services
             };
 
             return tokens;
+        }
+
+        private RefreshToken CreateRefreshToken(string userId)
+        {
+            var refeshToken = jwtService.CreateRefreshToken();
+
+            var refreshTokenEntity = new RefreshToken
+            {
+                Token = refeshToken,
+                UserId = userId,
+                CreationDate = DateTime.UtcNow // Now vs UtcNow
+            };
+
+            refreshTokenR.Insert(refreshTokenEntity);
+            refreshTokenR.Save();
+
+            return refreshTokenEntity;
         }
 
         public async Task Logout(string refreshToken)

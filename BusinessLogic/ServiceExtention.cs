@@ -21,10 +21,6 @@ namespace BusinessLogic
 
         public static void AddFluentValidators(this IServiceCollection services)    
         {   
-            //services.AddFluentValidationAutoValidation();
-            // enable client-side validation
-            //services.AddFluentValidationClientsideAdapters();
-            // Load an assembly reference rather than using a marker type.
             services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
         }
 
@@ -32,6 +28,9 @@ namespace BusinessLogic
         {
             services.AddScoped<IFilmService, FilmService>();
             services.AddScoped<ISessionService, SessionService>();
+            services.AddScoped<IFileService, LocalFileService>();
+            services.AddScoped<IAccountsService, AccountsService>();
+            services.AddScoped<IJwtService, JwtService>();
         }
 
     }

@@ -5,7 +5,7 @@ namespace BusinessLogic.Interfaces
     public interface IAccountsService
     {
         Task Register(RegisterModel model);
-        Task Login(LoginModel model);
+        Task<LoginResponseDto> Login(LoginModel model);
         Task Logout(string refreshToken);
         Task<UserTokens> RefreshTokens(UserTokens tokens);
     }

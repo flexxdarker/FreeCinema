@@ -23,9 +23,9 @@ namespace FreeCinema.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginModel model)
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            return Ok(accountsService.Login(model));
+            return Ok(await accountsService.Login(model));
         }
 
         [HttpPost("refreshTokens")]

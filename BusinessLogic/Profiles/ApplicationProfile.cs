@@ -18,8 +18,8 @@ namespace BusinessLogic.Profiles
             CreateMap<FilmDto, Film>()
                 .ForMember(x => x.Category, opt => opt.Ignore());
             CreateMap<Film, FilmDto>();
-            CreateMap<CreateFilmModel, Film>()
-                .ForMember(x => x.ImageUrl, opt => opt.MapFrom(src => fileService.SaveFilmImage(src.ImageUrl).Result));
+            CreateMap<CreateFilmModel, Film>();
+                 //.ForMember(x => x.ImageUrl, opt => opt.MapFrom(src => fileService.SaveFilmImage(src.ImageUrl).Result));
 
             CreateMap<RegisterModel, User>()
                 .ForMember(x => x.UserName, opts => opts.MapFrom(s => s.Email));
