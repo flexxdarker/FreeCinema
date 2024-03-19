@@ -4,6 +4,7 @@ using DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    partial class CinemaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240319213234_addedPP")]
+    partial class addedPP
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,7 +172,243 @@ namespace DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BusinessLogic.Entities.PP", b =>
+            modelBuilder.Entity("BusinessLogic.Entities.Place", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CinemaHallId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Row")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CinemaHallId");
+
+                    b.ToTable("Places");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CinemaHallId = 1,
+                            Number = 1,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CinemaHallId = 1,
+                            Number = 2,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CinemaHallId = 1,
+                            Number = 4,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CinemaHallId = 1,
+                            Number = 3,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CinemaHallId = 1,
+                            Number = 5,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CinemaHallId = 1,
+                            Number = 6,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CinemaHallId = 1,
+                            Number = 7,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CinemaHallId = 1,
+                            Number = 8,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CinemaHallId = 1,
+                            Number = 9,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CinemaHallId = 1,
+                            Number = 10,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CinemaHallId = 1,
+                            Number = 11,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CinemaHallId = 1,
+                            Number = 12,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CinemaHallId = 1,
+                            Number = 13,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CinemaHallId = 1,
+                            Number = 14,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CinemaHallId = 1,
+                            Number = 15,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CinemaHallId = 1,
+                            Number = 16,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CinemaHallId = 1,
+                            Number = 17,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CinemaHallId = 1,
+                            Number = 18,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CinemaHallId = 1,
+                            Number = 19,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CinemaHallId = 1,
+                            Number = 20,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CinemaHallId = 1,
+                            Number = 21,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CinemaHallId = 1,
+                            Number = 22,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CinemaHallId = 1,
+                            Number = 23,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CinemaHallId = 1,
+                            Number = 24,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CinemaHallId = 1,
+                            Number = 25,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CinemaHallId = 1,
+                            Number = 26,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CinemaHallId = 1,
+                            Number = 27,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CinemaHallId = 1,
+                            Number = 28,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CinemaHallId = 1,
+                            Number = 29,
+                            Row = 0
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CinemaHallId = 1,
+                            Number = 30,
+                            Row = 0
+                        });
+                });
+
+            modelBuilder.Entity("BusinessLogic.Entities.PlacePrice", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -437,242 +676,6 @@ namespace DataAccess.Migrations
                             Price = 150m,
                             SessionId = 1,
                             isReserved = false
-                        });
-                });
-
-            modelBuilder.Entity("BusinessLogic.Entities.Place", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CinemaHallId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Row")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CinemaHallId");
-
-                    b.ToTable("Places");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CinemaHallId = 1,
-                            Number = 1,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CinemaHallId = 1,
-                            Number = 2,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CinemaHallId = 1,
-                            Number = 4,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CinemaHallId = 1,
-                            Number = 3,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CinemaHallId = 1,
-                            Number = 5,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CinemaHallId = 1,
-                            Number = 6,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CinemaHallId = 1,
-                            Number = 7,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CinemaHallId = 1,
-                            Number = 8,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CinemaHallId = 1,
-                            Number = 9,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CinemaHallId = 1,
-                            Number = 10,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 11,
-                            CinemaHallId = 1,
-                            Number = 11,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 12,
-                            CinemaHallId = 1,
-                            Number = 12,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 13,
-                            CinemaHallId = 1,
-                            Number = 13,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 14,
-                            CinemaHallId = 1,
-                            Number = 14,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 15,
-                            CinemaHallId = 1,
-                            Number = 15,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 16,
-                            CinemaHallId = 1,
-                            Number = 16,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 17,
-                            CinemaHallId = 1,
-                            Number = 17,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 18,
-                            CinemaHallId = 1,
-                            Number = 18,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 19,
-                            CinemaHallId = 1,
-                            Number = 19,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 20,
-                            CinemaHallId = 1,
-                            Number = 20,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 21,
-                            CinemaHallId = 1,
-                            Number = 21,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 22,
-                            CinemaHallId = 1,
-                            Number = 22,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 23,
-                            CinemaHallId = 1,
-                            Number = 23,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 24,
-                            CinemaHallId = 1,
-                            Number = 24,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 25,
-                            CinemaHallId = 1,
-                            Number = 25,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 26,
-                            CinemaHallId = 1,
-                            Number = 26,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 27,
-                            CinemaHallId = 1,
-                            Number = 27,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 28,
-                            CinemaHallId = 1,
-                            Number = 28,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 29,
-                            CinemaHallId = 1,
-                            Number = 29,
-                            Row = 0
-                        },
-                        new
-                        {
-                            Id = 30,
-                            CinemaHallId = 1,
-                            Number = 30,
-                            Row = 0
                         });
                 });
 
@@ -990,7 +993,18 @@ namespace DataAccess.Migrations
                         .HasForeignKey("FilmId");
                 });
 
-            modelBuilder.Entity("BusinessLogic.Entities.PP", b =>
+            modelBuilder.Entity("BusinessLogic.Entities.Place", b =>
+                {
+                    b.HasOne("BusinessLogic.Entities.CinemaHall", "CinemaHall")
+                        .WithMany("Places")
+                        .HasForeignKey("CinemaHallId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CinemaHall");
+                });
+
+            modelBuilder.Entity("BusinessLogic.Entities.PlacePrice", b =>
                 {
                     b.HasOne("BusinessLogic.Entities.Place", "Place")
                         .WithMany("PlacePrices")
@@ -1007,17 +1021,6 @@ namespace DataAccess.Migrations
                     b.Navigation("Place");
 
                     b.Navigation("Session");
-                });
-
-            modelBuilder.Entity("BusinessLogic.Entities.Place", b =>
-                {
-                    b.HasOne("BusinessLogic.Entities.CinemaHall", "CinemaHall")
-                        .WithMany("Places")
-                        .HasForeignKey("CinemaHallId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CinemaHall");
                 });
 
             modelBuilder.Entity("BusinessLogic.Entities.RefreshToken", b =>

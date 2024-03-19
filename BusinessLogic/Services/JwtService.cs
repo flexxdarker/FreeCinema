@@ -38,7 +38,7 @@ namespace BusinessLogic.Services
             var token = new JwtSecurityToken(
                 issuer: jwtOptions.Issuer,
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(jwtOptions.AcceeTokenLifetimeInMinutes),
+                expires: DateTime.UtcNow.AddDays(jwtOptions.AcceeTokenLifetimeInMinutes),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

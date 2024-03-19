@@ -62,6 +62,24 @@ namespace DataAccess.Data
             { 
                 new Session() {Id = 1, CinemaHallId = 1, FilmId = 1, DateTime = new DateTime(2024, 03, 15, 19, 20, 59)}
             });
+            builder.Entity<PP>().HasData(new[]
+            {
+                new PP() {Id = 1, isReserved = false, PlaceId = 1, SessionId = 1, Price = 150},new PP() {Id = 2, isReserved = false, PlaceId = 2, SessionId = 1, Price = 150},
+                new PP() {Id = 3, isReserved = false, PlaceId = 3, SessionId = 1, Price = 150},new PP() {Id = 4, isReserved = false, PlaceId = 4, SessionId = 1, Price = 150},
+                new PP() {Id = 5, isReserved = false, PlaceId = 5, SessionId = 1, Price = 150},new PP() {Id = 6, isReserved = false, PlaceId = 6, SessionId = 1, Price = 150},
+                new PP() {Id = 7, isReserved = false, PlaceId = 7, SessionId = 1, Price = 150},new PP() {Id = 8, isReserved = false, PlaceId = 8, SessionId = 1, Price = 150},
+                new PP() {Id = 9, isReserved = false, PlaceId = 9, SessionId = 1, Price = 150},new PP() {Id = 10, isReserved = false, PlaceId = 10, SessionId = 1, Price = 150},
+                new PP() {Id = 11, isReserved = false, PlaceId = 11, SessionId = 1, Price = 150},new PP() {Id = 12, isReserved = false, PlaceId = 12, SessionId = 1, Price = 150},
+                new PP() {Id = 13, isReserved = false, PlaceId = 13, SessionId = 1, Price = 150},new PP() {Id = 14, isReserved = false, PlaceId = 14, SessionId = 1, Price = 150},
+                new PP() {Id = 15, isReserved = false, PlaceId = 15, SessionId = 1, Price = 150},new PP() {Id = 16, isReserved = false, PlaceId = 16, SessionId = 1, Price = 150},
+                new PP() {Id = 17, isReserved = false, PlaceId = 17, SessionId = 1, Price = 150},new PP() {Id = 18, isReserved = false, PlaceId = 18, SessionId = 1, Price = 150},
+                new PP() {Id = 19, isReserved = false, PlaceId = 19, SessionId = 1, Price = 150},new PP() {Id = 20, isReserved = false, PlaceId = 20, SessionId = 1, Price = 150},
+                new PP() {Id = 21, isReserved = false, PlaceId = 21, SessionId = 1, Price = 150},new PP() {Id = 22, isReserved = false, PlaceId = 22, SessionId = 1, Price = 150},
+                new PP() {Id = 23, isReserved = false, PlaceId = 23, SessionId = 1, Price = 150},new PP() {Id = 24, isReserved = false, PlaceId = 24, SessionId = 1, Price = 150},
+                new PP() {Id = 25, isReserved = false, PlaceId = 25, SessionId = 1, Price = 150},new PP() {Id = 26, isReserved = false, PlaceId = 26, SessionId = 1, Price = 150},
+                new PP() {Id = 27, isReserved = false, PlaceId = 27, SessionId = 1, Price = 150},new PP() {Id = 28, isReserved = false, PlaceId = 28, SessionId = 1, Price = 150},
+                new PP() {Id = 29, isReserved = false, PlaceId = 29, SessionId = 1, Price = 150},new PP() {Id = 30, isReserved = false, PlaceId = 30, SessionId = 1, Price = 150},
+            });
         }
     }
 }

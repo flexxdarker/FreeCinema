@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Entities
 {
-    public class PlacePrice
+    public class PP
     {
         public int Id { get; set; }
         public decimal Price { get; set; }

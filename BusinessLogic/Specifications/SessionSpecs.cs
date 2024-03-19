@@ -24,7 +24,8 @@ namespace BusinessLogic.Specifications
         {
             public All()
             {
-                Query.Include(x => x.CinemaHall)
+                Query.Where(x => x.DateTime.Date > DateTime.Now)
+                    .Include(x => x.CinemaHall)
                     .Include(x => x.Film);
             }
         }

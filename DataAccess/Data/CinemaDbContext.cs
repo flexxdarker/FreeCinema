@@ -20,6 +20,7 @@ namespace DataAccess.Data
         public DbSet<Film> Films { get; set; }
         public DbSet<Place> Places { get; set; }
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<PP> PlacesPrice { get; set; }
         public CinemaDbContext(DbContextOptions options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
