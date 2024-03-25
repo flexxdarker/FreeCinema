@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Data.Configurations
 {
-    public class PlacePriceConfig : IEntityTypeConfiguration<PP>
+    public class PPConfig : IEntityTypeConfiguration<PP>
     {
         public void Configure(EntityTypeBuilder<PP> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.HasOne(x => x.Session).WithMany(x => x.PlacePrices).HasForeignKey(x => x.SessionId);
+            builder.HasOne(x => x.Session).WithMany(x => x.PlacePrices).HasForeignKey(x => x.SessionId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.Place).WithMany(x => x.PlacePrices).HasForeignKey(x => x.PlaceId);
         }
     }

@@ -14,6 +14,5 @@ namespace BusinessLogic.DTOs
         public int UserId { get; set; }
         public decimal TotalPrice { get; set; }
         public int PlacePriceId { get; set; }
-        public PP? PlacePrice { get; set; }
     }
 }

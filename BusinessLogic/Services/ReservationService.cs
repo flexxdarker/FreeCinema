@@ -29,12 +29,12 @@ namespace BusinessLogic.Services
             var place = new PP
             {
                 Id = placePrice.Id,
-                isReserved = true,
+                IsReserved = true,
                 PlaceId = placePrice.PlaceId,
                 SessionId = placePrice.SessionId,
                 Price = placePrice.Price,
             };
-            if(placepriceR.GetByID(placePrice.Id).isReserved == true)
+            if(placepriceR.GetByID(placePrice.Id).IsReserved == true)
                 throw new HttpException(Errors.PlaceIsReserved, System.Net.HttpStatusCode.BadRequest);
             else
             {

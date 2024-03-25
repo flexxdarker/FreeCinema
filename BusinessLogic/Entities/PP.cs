@@ -10,7 +10,7 @@ namespace BusinessLogic.Entities
     {
         public int Id { get; set; }
         public decimal Price { get; set; }
-        public bool isReserved { get; set; }
+        public bool IsReserved { get; set; }
         public int SessionId { get; set; }
         public Session? Session { get; set; }
         public int PlaceId { get; set; }
