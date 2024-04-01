@@ -123,6 +123,9 @@
   <data name="InvalidToken" xml:space="preserve">
     <value>Token is invalid</value>
   </data>
+  <data name="PlaceIsReserved" xml:space="preserve">
+    <value>Place is reserved</value>
+  </data>
   <data name="ProductNotFound" xml:space="preserve">
     <value>Product not found</value>
   </data>

@@ -13,6 +13,6 @@ namespace BusinessLogic.DTOs
         public int SessionId { get; set; }
         public int UserId { get; set; }
         public decimal TotalPrice { get; set; }
-        public IEnumerable<PlacePrice>? PlacePrices { get; set; }
+        public int PlacePriceId { get; set; }
     }
 }

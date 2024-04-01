@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class mustWork : Migration
+    public partial class pp : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -188,6 +188,27 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "RefreshTokens",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Token = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RefreshTokens", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RefreshTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Films",
                 columns: table => new
                 {
@@ -197,17 +218,11 @@ namespace DataAccess.Migrations
                     CompanyId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     Year = table.Column<int>(type: "int", nullable: false),
-                    imageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Films", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Films_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Films_Categories_CategoryId",
                         column: x => x.CategoryId,
@@ -248,6 +263,7 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Number = table.Column<int>(type: "int", nullable: false),
+                    Row = table.Column<int>(type: "int", nullable: false),
                     CinemaHallId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -288,6 +304,33 @@ namespace DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PlacePrices",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IsReserved = table.Column<bool>(type: "bit", nullable: false),
+                    SessionId = table.Column<int>(type: "int", nullable: false),
+                    PlaceId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlacePrices", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PlacePrices_Places_PlaceId",
+                        column: x => x.PlaceId,
+                        principalTable: "Places",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PlacePrices_Sessions_SessionId",
+                        column: x => x.SessionId,
+                        principalTable: "Sessions",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "Name" },
@@ -322,50 +365,87 @@ namespace DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "Films",
-                columns: new[] { "Id", "CategoryId", "CompanyId", "Name", "UserId", "Year", "imageUrl" },
-                values: new object[] { 1, 1, 1, "Fast&Furious", null, 2001, "https://wallpaperaccess.com/full/1494975.jpg" });
+                columns: new[] { "Id", "CategoryId", "CompanyId", "ImageUrl", "Name", "Year" },
+                values: new object[] { 1, 1, 1, "https://wallpaperaccess.com/full/1494975.jpg", "Fast&Furious", 2001 });
 
             migrationBuilder.InsertData(
                 table: "Places",
-                columns: new[] { "Id", "CinemaHallId", "Number" },
+                columns: new[] { "Id", "CinemaHallId", "Number", "Row" },
                 values: new object[,]
                 {
-                    { 1, 1, 1 },
-                    { 2, 1, 2 },
-                    { 3, 1, 3 },
-                    { 4, 1, 4 },
-                    { 5, 1, 5 },
-                    { 6, 1, 6 },
-                    { 7, 1, 7 },
-                    { 8, 1, 8 },
-                    { 9, 1, 9 },
-                    { 10, 1, 10 },
-                    { 11, 1, 11 },
-                    { 12, 1, 12 },
-                    { 13, 1, 13 },
-                    { 14, 1, 14 },
-                    { 15, 1, 15 },
-                    { 16, 1, 16 },
-                    { 17, 1, 17 },
-                    { 18, 1, 18 },
-                    { 19, 1, 19 },
-                    { 20, 1, 20 },
-                    { 21, 1, 21 },
-                    { 22, 1, 22 },
-                    { 23, 1, 23 },
-                    { 24, 1, 24 },
-                    { 25, 1, 25 },
-                    { 26, 1, 26 },
-                    { 27, 1, 27 },
-                    { 28, 1, 28 },
-                    { 29, 1, 29 },
-                    { 30, 1, 30 }
+                    { 1, 1, 1, 0 },
+                    { 2, 1, 2, 0 },
+                    { 3, 1, 3, 0 },
+                    { 4, 1, 4, 0 },
+                    { 5, 1, 5, 0 },
+                    { 6, 1, 6, 0 },
+                    { 7, 1, 7, 0 },
+                    { 8, 1, 8, 0 },
+                    { 9, 1, 9, 0 },
+                    { 10, 1, 10, 0 },
+                    { 11, 1, 11, 0 },
+                    { 12, 1, 12, 0 },
+                    { 13, 1, 13, 0 },
+                    { 14, 1, 14, 0 },
+                    { 15, 1, 15, 0 },
+                    { 16, 1, 16, 0 },
+                    { 17, 1, 17, 0 },
+                    { 18, 1, 18, 0 },
+                    { 19, 1, 19, 0 },
+                    { 20, 1, 20, 0 },
+                    { 21, 1, 21, 0 },
+                    { 22, 1, 22, 0 },
+                    { 23, 1, 23, 0 },
+                    { 24, 1, 24, 0 },
+                    { 25, 1, 25, 0 },
+                    { 26, 1, 26, 0 },
+                    { 27, 1, 27, 0 },
+                    { 28, 1, 28, 0 },
+                    { 29, 1, 29, 0 },
+                    { 30, 1, 30, 0 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Sessions",
                 columns: new[] { "Id", "CinemaHallId", "DateTime", "FilmId" },
                 values: new object[] { 1, 1, new DateTime(2024, 3, 15, 19, 20, 59, 0, DateTimeKind.Unspecified), 1 });
+
+            migrationBuilder.InsertData(
+                table: "PlacePrices",
+                columns: new[] { "Id", "IsReserved", "PlaceId", "Price", "SessionId" },
+                values: new object[,]
+                {
+                    { 1, false, 1, 150m, 1 },
+                    { 2, false, 2, 150m, 1 },
+                    { 3, false, 3, 150m, 1 },
+                    { 4, false, 4, 150m, 1 },
+                    { 5, false, 5, 150m, 1 },
+                    { 6, false, 6, 150m, 1 },
+                    { 7, false, 7, 150m, 1 },
+                    { 8, false, 8, 150m, 1 },
+                    { 9, false, 9, 150m, 1 },
+                    { 10, false, 10, 150m, 1 },
+                    { 11, false, 11, 150m, 1 },
+                    { 12, false, 12, 150m, 1 },
+                    { 13, false, 13, 150m, 1 },
+                    { 14, false, 14, 150m, 1 },
+                    { 15, false, 15, 150m, 1 },
+                    { 16, false, 16, 150m, 1 },
+                    { 17, false, 17, 150m, 1 },
+                    { 18, false, 18, 150m, 1 },
+                    { 19, false, 19, 150m, 1 },
+                    { 20, false, 20, 150m, 1 },
+                    { 21, false, 21, 150m, 1 },
+                    { 22, false, 22, 150m, 1 },
+                    { 23, false, 23, 150m, 1 },
+                    { 24, false, 24, 150m, 1 },
+                    { 25, false, 25, 150m, 1 },
+                    { 26, false, 26, 150m, 1 },
+                    { 27, false, 27, 150m, 1 },
+                    { 28, false, 28, 150m, 1 },
+                    { 29, false, 29, 150m, 1 },
+                    { 30, false, 30, 150m, 1 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -422,14 +502,24 @@ namespace DataAccess.Migrations
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Films_UserId",
-                table: "Films",
-                column: "UserId");
+                name: "IX_PlacePrices_PlaceId",
+                table: "PlacePrices",
+                column: "PlaceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PlacePrices_SessionId",
+                table: "PlacePrices",
+                column: "SessionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Places_CinemaHallId",
                 table: "Places",
                 column: "CinemaHallId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RefreshTokens_UserId",
+                table: "RefreshTokens",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Sessions_CinemaHallId",
@@ -461,22 +551,28 @@ namespace DataAccess.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "PlacePrices");
+
+            migrationBuilder.DropTable(
+                name: "RefreshTokens");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
                 name: "Places");
 
             migrationBuilder.DropTable(
                 name: "Sessions");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoles");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "CinemaHalls");
 
             migrationBuilder.DropTable(
                 name: "Films");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Categories");

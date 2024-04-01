@@ -79,6 +79,15 @@ namespace BusinessLogic {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Place is reserved.
+        /// </summary>
+        internal static string PlaceIsReserved {
+            get {
+                return ResourceManager.GetString("PlaceIsReserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Product not found.
         /// </summary>
         internal static string ProductNotFound {

@@ -14,6 +14,6 @@ namespace BusinessLogic.DTOs
         public int Row { get; set; }
         public int CinemaHallId { get; set; }
         public string? CinemaHallName { get; set; }
-        public IEnumerable<PlacePrice>? PlacePrices { get; set; }
+        public IEnumerable<PP>? PlacePrices { get; set; }
     }
 }

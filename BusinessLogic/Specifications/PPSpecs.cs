@@ -10,12 +10,12 @@ namespace BusinessLogic.Specifications
 {
     public class PPSpecs
     {
-        internal class ByIds: Specification<PlacePrice>
+        internal class ById: Specification<PP>
         {
-            public ByIds(IEnumerable<int> ids)
+            public ById(int id)
             {
                 Query
-                    .Where(x => ids.Contains(x.Id))
+                    .Where(x => x.Id == id)
                     .Include(x=>x.Place)
                     .Include(x=>x.Session);
             }

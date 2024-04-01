@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20240306175618_mustWork")]
-    partial class mustWork
+    [Migration("20240325114021_addedSomeNewFilms")]
+    partial class addedSomeNewFilms
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -146,14 +146,14 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             Date = new DateOnly(1912, 4, 30),
-                            Description = "Universal City Studios LLC, doing business as Universal Pictures (informally as Universal Studios or simply Universal), is an American film production and distribution company owned by NBCUniversal, a division of Comcast. Founded in 1912 by Carl Laemmle, Mark Dintenfass, Charles O. Baumann, Adam Kessel, Pat Powers, William Swanson, David Horsley, Robert H. Cochrane, and Jules Brulatour, Universal is the oldest surviving film studio in the United States; the world's fifth oldest after Gaumont, Pathé, Titanus and Nordisk Film; and the oldest major film studio in scope of the cinema of the United States, best known as \"Hollywood\", in terms of the overall film market. Its studios are located in Universal City, California, and its corporate offices are located in New York City. In 1962, the studio was acquired by MCA, which was re-launched as NBCUniversal in 2004. The most commercially successful film series from Universal include Fast & Furious, Jurassic Park, and Despicable Me. Additionally, the studio's library includes many individual films such as Jaws and E.T. the Extraterrestrial, both of which became the highest-grossing films of all time during their initial releases. Universal Pictures is a member of the Motion Picture Association (MPA), and was one of the \"Little Three\" majors during Hollywood's golden age.[4]",
+                            Description = "Universal City Studios LLC, doing business as Universal Pictures (informally as Universal Studios or simply Universal), is an American film production and distribution company owned by NBCUniversal, a division of Comcast. Founded in 1912 by Carl Laemmle, Mark Dintenfass, Charles O. Baumann, Adam Kessel, Pat Powers, William Swanson, David Horsley, Robert H. Cochrane, and Jules Brulatour, Universal is the oldest surviving film studio in the United States; the world's fifth oldest after Gaumont, Pathé, Titanus and Nordisk Film; and the oldest major film studio in scope of the cinema of the United States, best known as \"Hollywood\", in terms of the overall film market. Its studios are located in Universal City, California, and its corporate offices are located in New York City. In 1962, the studio was acquired by MCA, which was re-launched as NBCUniversal in 2004. The most commercially successful film series from Universal include Fast & Furious, Jurassic Park, and Despicable Me. Additionally, the studio's library includes many individual films such as Jaws and E.T. the Extraterrestrial, both of which became the highest-grossing films of all time during their initial releases. Universal Pictures is a member of the Motion Picture Association (MPA), and was one of the \"Little Three\" majors during Hollywood's golden age.",
                             Name = "Universal Pictures"
                         },
                         new
                         {
                             Id = 2,
                             Date = new DateOnly(1912, 5, 8),
-                            Description = "Paramount Pictures Corporation is an American film and television production and distribution company and the namesake subsidiary of Paramount Global (Previously known as ViacomCBS). It is the sixth-oldest film studio in the world, the second-oldest film studio in the United States (behind Universal Pictures), and the sole member of the \"Big Five\" film studios located within the city limits of Los Angeles.[1] In 1916, film producer Adolph Zukor put 24 actors and actresses under contract and honored each with a star on the logo.[2] In 1967, the number of stars was reduced to 22 and their hidden meaning was dropped. In 2014, Paramount Pictures became the first major Hollywood studio to distribute all of its films in digital form only.[3] The company's headquarters and studios are located at 5555 Melrose Avenue, Hollywood, California.[4]",
+                            Description = "Paramount Pictures Corporation is an American film and television production and distribution company and the namesake subsidiary of Paramount Global (Previously known as ViacomCBS). It is the sixth-oldest film studio in the world, the second-oldest film studio in the United States (behind Universal Pictures), and the sole member of the \"Big Five\" film studios located within the city limits of Los Angeles.[1] In 1916, film producer Adolph Zukor put 24 actors and actresses under contract and honored each with a star on the logo.[2] In 1967, the number of stars was reduced to 22 and their hidden meaning was dropped. In 2014, Paramount Pictures became the first major Hollywood studio to distribute all of its films in digital form only.[3] The company's headquarters and studios are located at 5555 Melrose Avenue, Hollywood, California.",
                             Name = "Paramount Pictures"
                         },
                         new
@@ -167,8 +167,293 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             Date = new DateOnly(1997, 8, 29),
-                            Description = "Netflix is an American subscription video on-demand over-the-top streaming service. The service primarily distributes original and acquired films and television shows from various genres, and it is available internationally in multiple languages.[6] Launched on January 16, 2007, nearly a decade after Netflix, Inc. began its pioneering DVD‑by‑mail movie rental service, Netflix is the most-subscribed video on demand streaming media service, with 260.28 million paid memberships in more than 190 countries as of January 2024.[5][7] By 2022, \"Netflix Original\" productions accounted for half of its library in the United States and the namesake company had ventured into other categories, such as video game publishing of mobile games via its flagship service. As of October 2023, Netflix is the 24th most-visited website in the world with 23.66% of its traffic coming from the United States, followed by the United Kingdom at 5.84% and Brazil at 5.64%.[8][9]",
+                            Description = "Netflix is an American subscription video on-demand over-the-top streaming service. The service primarily distributes original and acquired films and television shows from various genres, and it is available internationally in multiple languages. Launched on January 16, 2007, nearly a decade after Netflix, Inc. began its pioneering DVD‑by‑mail movie rental service, Netflix is the most-subscribed video on demand streaming media service, with 260.28 million paid memberships in more than 190 countries as of January 2024. By 2022, \"Netflix Original\" productions accounted for half of its library in the United States and the namesake company had ventured into other categories, such as video game publishing of mobile games via its flagship service. As of October 2023, Netflix is the 24th most-visited website in the world with 23.66% of its traffic coming from the United States, followed by the United Kingdom at 5.84% and Brazil at 5.64%.",
                             Name = "Netflix"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Date = new DateOnly(1924, 1, 10),
+                            Description = "Columbia Pictures Industries, Inc. is an American film production and distribution company that is a member of the Sony Pictures Motion Picture Group a division of Sony Pictures Entertainment, which is one of the Big Five studios and a subsidiary of the multinational conglomerate Sony.",
+                            Name = "Columbia Pictures"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Date = new DateOnly(1935, 5, 31),
+                            Description = "20th Century Studios, Inc. is an American film studio currently owned by the Walt Disney Studios, a division of Disney Entertainment, in turn a division of The Walt Disney Company. It is headquartered at the Fox Studio Lot in the Century City area of Los Angeles. Walt Disney Studios Motion Pictures distributes and markets the films produced by 20th Century Studios in theatrical markets.",
+                            Name = "Twentieth Century Studios"
+                        });
+                });
+
+            modelBuilder.Entity("BusinessLogic.Entities.PP", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsReserved")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PlaceId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SessionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlaceId");
+
+                    b.HasIndex("SessionId");
+
+                    b.ToTable("PlacePrices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsReserved = false,
+                            PlaceId = 1,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsReserved = false,
+                            PlaceId = 2,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            IsReserved = false,
+                            PlaceId = 3,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            IsReserved = false,
+                            PlaceId = 4,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IsReserved = false,
+                            PlaceId = 5,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            IsReserved = false,
+                            PlaceId = 6,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            IsReserved = false,
+                            PlaceId = 7,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            IsReserved = false,
+                            PlaceId = 8,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            IsReserved = false,
+                            PlaceId = 9,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            IsReserved = false,
+                            PlaceId = 10,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            IsReserved = false,
+                            PlaceId = 11,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 12,
+                            IsReserved = false,
+                            PlaceId = 12,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 13,
+                            IsReserved = false,
+                            PlaceId = 13,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 14,
+                            IsReserved = false,
+                            PlaceId = 14,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 15,
+                            IsReserved = false,
+                            PlaceId = 15,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 16,
+                            IsReserved = false,
+                            PlaceId = 16,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 17,
+                            IsReserved = false,
+                            PlaceId = 17,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 18,
+                            IsReserved = false,
+                            PlaceId = 18,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 19,
+                            IsReserved = false,
+                            PlaceId = 19,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 20,
+                            IsReserved = false,
+                            PlaceId = 20,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 21,
+                            IsReserved = false,
+                            PlaceId = 21,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 22,
+                            IsReserved = false,
+                            PlaceId = 22,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 23,
+                            IsReserved = false,
+                            PlaceId = 23,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 24,
+                            IsReserved = false,
+                            PlaceId = 24,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 25,
+                            IsReserved = false,
+                            PlaceId = 25,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 26,
+                            IsReserved = false,
+                            PlaceId = 26,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 27,
+                            IsReserved = false,
+                            PlaceId = 27,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 28,
+                            IsReserved = false,
+                            PlaceId = 28,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 29,
+                            IsReserved = false,
+                            PlaceId = 29,
+                            Price = 150m,
+                            SessionId = 1
+                        },
+                        new
+                        {
+                            Id = 30,
+                            IsReserved = false,
+                            PlaceId = 30,
+                            Price = 150m,
+                            SessionId = 1
                         });
                 });
 
@@ -186,6 +471,9 @@ namespace DataAccess.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
+                    b.Property<int>("Row")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CinemaHallId");
@@ -197,182 +485,238 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             CinemaHallId = 1,
-                            Number = 1
+                            Number = 1,
+                            Row = 0
                         },
                         new
                         {
                             Id = 2,
                             CinemaHallId = 1,
-                            Number = 2
+                            Number = 2,
+                            Row = 0
                         },
                         new
                         {
                             Id = 4,
                             CinemaHallId = 1,
-                            Number = 4
+                            Number = 4,
+                            Row = 0
                         },
                         new
                         {
                             Id = 3,
                             CinemaHallId = 1,
-                            Number = 3
+                            Number = 3,
+                            Row = 0
                         },
                         new
                         {
                             Id = 5,
                             CinemaHallId = 1,
-                            Number = 5
+                            Number = 5,
+                            Row = 0
                         },
                         new
                         {
                             Id = 6,
                             CinemaHallId = 1,
-                            Number = 6
+                            Number = 6,
+                            Row = 0
                         },
                         new
                         {
                             Id = 7,
                             CinemaHallId = 1,
-                            Number = 7
+                            Number = 7,
+                            Row = 0
                         },
                         new
                         {
                             Id = 8,
                             CinemaHallId = 1,
-                            Number = 8
+                            Number = 8,
+                            Row = 0
                         },
                         new
                         {
                             Id = 9,
                             CinemaHallId = 1,
-                            Number = 9
+                            Number = 9,
+                            Row = 0
                         },
                         new
                         {
                             Id = 10,
                             CinemaHallId = 1,
-                            Number = 10
+                            Number = 10,
+                            Row = 0
                         },
                         new
                         {
                             Id = 11,
                             CinemaHallId = 1,
-                            Number = 11
+                            Number = 11,
+                            Row = 0
                         },
                         new
                         {
                             Id = 12,
                             CinemaHallId = 1,
-                            Number = 12
+                            Number = 12,
+                            Row = 0
                         },
                         new
                         {
                             Id = 13,
                             CinemaHallId = 1,
-                            Number = 13
+                            Number = 13,
+                            Row = 0
                         },
                         new
                         {
                             Id = 14,
                             CinemaHallId = 1,
-                            Number = 14
+                            Number = 14,
+                            Row = 0
                         },
                         new
                         {
                             Id = 15,
                             CinemaHallId = 1,
-                            Number = 15
+                            Number = 15,
+                            Row = 0
                         },
                         new
                         {
                             Id = 16,
                             CinemaHallId = 1,
-                            Number = 16
+                            Number = 16,
+                            Row = 0
                         },
                         new
                         {
                             Id = 17,
                             CinemaHallId = 1,
-                            Number = 17
+                            Number = 17,
+                            Row = 0
                         },
                         new
                         {
                             Id = 18,
                             CinemaHallId = 1,
-                            Number = 18
+                            Number = 18,
+                            Row = 0
                         },
                         new
                         {
                             Id = 19,
                             CinemaHallId = 1,
-                            Number = 19
+                            Number = 19,
+                            Row = 0
                         },
                         new
                         {
                             Id = 20,
                             CinemaHallId = 1,
-                            Number = 20
+                            Number = 20,
+                            Row = 0
                         },
                         new
                         {
                             Id = 21,
                             CinemaHallId = 1,
-                            Number = 21
+                            Number = 21,
+                            Row = 0
                         },
                         new
                         {
                             Id = 22,
                             CinemaHallId = 1,
-                            Number = 22
+                            Number = 22,
+                            Row = 0
                         },
                         new
                         {
                             Id = 23,
                             CinemaHallId = 1,
-                            Number = 23
+                            Number = 23,
+                            Row = 0
                         },
                         new
                         {
                             Id = 24,
                             CinemaHallId = 1,
-                            Number = 24
+                            Number = 24,
+                            Row = 0
                         },
                         new
                         {
                             Id = 25,
                             CinemaHallId = 1,
-                            Number = 25
+                            Number = 25,
+                            Row = 0
                         },
                         new
                         {
                             Id = 26,
                             CinemaHallId = 1,
-                            Number = 26
+                            Number = 26,
+                            Row = 0
                         },
                         new
                         {
                             Id = 27,
                             CinemaHallId = 1,
-                            Number = 27
+                            Number = 27,
+                            Row = 0
                         },
                         new
                         {
                             Id = 28,
                             CinemaHallId = 1,
-                            Number = 28
+                            Number = 28,
+                            Row = 0
                         },
                         new
                         {
                             Id = 29,
                             CinemaHallId = 1,
-                            Number = 29
+                            Number = 29,
+                            Row = 0
                         },
                         new
                         {
                             Id = 30,
                             CinemaHallId = 1,
-                            Number = 30
+                            Number = 30,
+                            Row = 0
                         });
+                });
+
+            modelBuilder.Entity("BusinessLogic.Entities.RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens", (string)null);
                 });
 
             modelBuilder.Entity("BusinessLogic.Entities.Session", b =>
@@ -492,27 +836,22 @@ namespace DataAccess.Migrations
                     b.Property<int>("CompanyId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("Year")
                         .HasColumnType("int");
-
-                    b.Property<string>("imageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("CompanyId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Films");
 
@@ -522,9 +861,45 @@ namespace DataAccess.Migrations
                             Id = 1,
                             CategoryId = 1,
                             CompanyId = 1,
+                            ImageUrl = "https://wallpaperaccess.com/full/1494975.jpg",
                             Name = "Fast&Furious",
-                            Year = 2001,
-                            imageUrl = "https://wallpaperaccess.com/full/1494975.jpg"
+                            Year = 2001
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 2,
+                            CompanyId = 5,
+                            ImageUrl = "https://m.media-amazon.com/images/M/MV5BNGYzNDM0M2QtZDFkNy00OTI2LWIyNjctNjNhNDM5Zjk3NzU2XkEyXkFqcGdeQXVyNjQ3MDg0MTY@._V1_.jpg",
+                            Name = "Ghost Busters",
+                            Year = 2016
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 2,
+                            CompanyId = 5,
+                            ImageUrl = "https://m.media-amazon.com/images/M/MV5BNGE5MWJmZWYtN2ZlMi00ZjY1LTlhYTUtMzQ2Y2IxZWQyYTA2XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg",
+                            Name = "Ghost Busters: Frozen Empire",
+                            Year = 2024
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 8,
+                            CompanyId = 6,
+                            ImageUrl = "https://m.media-amazon.com/images/M/MV5BMTk2NDc2MDAxN15BMl5BanBnXkFtZTYwNDc1NDY2._V1_FMjpg_UX1000_.jpg",
+                            Name = "The Transporter",
+                            Year = 2002
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 4,
+                            CompanyId = 2,
+                            ImageUrl = "https://m.media-amazon.com/images/M/MV5BNWI1NjkxM2MtOTU4My00YzQ5LTliNGMtNmFlM2U5NWM3MDY1XkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_.jpg",
+                            Name = "Transformers",
+                            Year = 2007
                         });
                 });
 
@@ -668,6 +1043,25 @@ namespace DataAccess.Migrations
                         .HasForeignKey("FilmId");
                 });
 
+            modelBuilder.Entity("BusinessLogic.Entities.PP", b =>
+                {
+                    b.HasOne("BusinessLogic.Entities.Place", "Place")
+                        .WithMany("PlacePrices")
+                        .HasForeignKey("PlaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BusinessLogic.Entities.Session", "Session")
+                        .WithMany("PlacePrices")
+                        .HasForeignKey("SessionId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Place");
+
+                    b.Navigation("Session");
+                });
+
             modelBuilder.Entity("BusinessLogic.Entities.Place", b =>
                 {
                     b.HasOne("BusinessLogic.Entities.CinemaHall", "CinemaHall")
@@ -677,6 +1071,17 @@ namespace DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("CinemaHall");
+                });
+
+            modelBuilder.Entity("BusinessLogic.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("BusinessLogic.Entities.User", "User")
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BusinessLogic.Entities.Session", b =>
@@ -711,10 +1116,6 @@ namespace DataAccess.Migrations
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("BusinessLogic.Entities.User", null)
-                        .WithMany("Films")
-                        .HasForeignKey("UserId");
 
                     b.Navigation("Category");
 
@@ -789,9 +1190,19 @@ namespace DataAccess.Migrations
                     b.Navigation("Films");
                 });
 
+            modelBuilder.Entity("BusinessLogic.Entities.Place", b =>
+                {
+                    b.Navigation("PlacePrices");
+                });
+
+            modelBuilder.Entity("BusinessLogic.Entities.Session", b =>
+                {
+                    b.Navigation("PlacePrices");
+                });
+
             modelBuilder.Entity("BusinessLogic.Entities.User", b =>
                 {
-                    b.Navigation("Films");
+                    b.Navigation("RefreshTokens");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Film", b =>

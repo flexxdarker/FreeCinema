@@ -15,6 +15,6 @@ namespace BusinessLogic.Entities
         public Film? Film { get; set; }
         public int CinemaHallId { get; set; }
         public CinemaHall? CinemaHall { get; set; }
-        public ICollection<PlacePrice> PlacePrices { get; set; }
+        public ICollection<PP> PlacePrices { get; set; }
     }
 }

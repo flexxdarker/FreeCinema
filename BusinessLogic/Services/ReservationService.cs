@@ -14,43 +14,33 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
 {
-    public class ReservationService : IReservation
+    public class ReservationService : IReservationService
     {
         private readonly IMapper mapper;
-        private readonly IRepository<Film> filmR;
-        private readonly IRepository<Reservation> reservationR;
-        private readonly ISelectedService selectedService;
-        private readonly IRepository<PlacePrice> placepriceR;
+        private readonly IRepository<PP> placepriceR;
         public ReservationService(IMapper mapper,
-                                  IRepository<Film> filmR,
-                                  IRepository<Reservation> reservationR,
-                                  ISelectedService selectedService,
-                                  IRepository<PlacePrice> placepriceR)
+                                  IRepository<PP> placepriceR)
         {
             this.mapper = mapper;
-            this.filmR = filmR;
-            this.reservationR = reservationR;
-            this.selectedService = selectedService;
             this.placepriceR = placepriceR;
         }
-        public async Task Create(string userId, int sessionId)
+        public async Task Create(PlacePriceDto placePrice)
         {
-            var ids = selectedService.GetPlaceIds();
-            var places = await placepriceR.GetListBySpec(new PPSpecs.ByIds(ids));
-            var reservation = new Reservation()
+            var place = new PP
             {
-                UserId = userId,
-                PlacePrices = places.ToList(),
-                SessionId = sessionId,
-                TotalPrice = places.Sum(x => x.Price),
+                Id = placePrice.Id,
+                IsReserved = true,
+                PlaceId = placePrice.PlaceId,
+                SessionId = placePrice.SessionId,
+                Price = placePrice.Price,
             };
-            reservationR.Insert(reservation);
-            reservationR.Save();
-        }
-        public async Task<IEnumerable<ReservationDto>> GetAllByUser(string userId)
-        {
-            var items = await reservationR.GetListBySpec(new ReservationSpecs.ByUser(userId));
-            return mapper.Map<IEnumerable<ReservationDto>>(items);
+            if(placepriceR.GetByID(placePrice.Id).IsReserved == true)
+                throw new HttpException(Errors.PlaceIsReserved, System.Net.HttpStatusCode.BadRequest);
+            else
+            {
+                placepriceR.Update(mapper.Map<PP>(place));
+                placepriceR.Save(); 
+            }
         }
     }
 }

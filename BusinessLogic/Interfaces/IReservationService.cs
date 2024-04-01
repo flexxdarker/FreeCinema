@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Interfaces
 {
-    public interface IReservation
+    public interface IReservationService
     {
-        Task<IEnumerable<ReservationDto>> GetAllByUser(string userId);
-        Task Create(string userId, int sessionId);
+        Task Create(PlacePriceDto pPModel);
     }
 }
