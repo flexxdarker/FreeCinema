@@ -13,6 +13,7 @@ namespace FreeCinema.Controllers
     public class FilmController : ControllerBase
     {
         private readonly IFilmService filmService;
+        private readonly ICategoryService categoryService;
 
         public FilmController(IFilmService filmService)
         {
@@ -24,7 +25,11 @@ namespace FreeCinema.Controllers
         {
             return Ok(await filmService.GetAll());
         }
-
+        [HttpGet("categories")]
+        public async Task<IActionResult> GetCategories()
+        {
+            return Ok(await categoryService.GetAll());
+        }
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get([FromRoute] int id)
         {
