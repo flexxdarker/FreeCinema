@@ -15,8 +15,7 @@ namespace BusinessLogic.Specifications
             public ByIds(IEnumerable<int> ids) 
             {
                 Query
-                    .Where(x => ids.Contains(x.Id))
-                    .Include(x=>x.PlacePrice);
+                    .Where(x => ids.Contains(x.Id));
             }
         }
         internal class ByUser: Specification<Reservation>

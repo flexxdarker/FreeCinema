@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.DTOs
 {
-    public class CreatePPModel
+    public class CreatePlaceModel
     {
-        public int SessionId { get; set; }
-        public int PlaceId { get; set; }
+        public int Number { get; set; }
+        public int CinemaHallId { get; set; }
     }
 }

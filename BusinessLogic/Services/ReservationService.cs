@@ -16,31 +16,17 @@ namespace BusinessLogic.Services
 {
     public class ReservationService : IReservationService
     {
-        private readonly IMapper mapper;
-        private readonly IRepository<PP> placepriceR;
-        public ReservationService(IMapper mapper,
-                                  IRepository<PP> placepriceR)
+        private readonly IRepository<Session> sessionR;
+        public ReservationService(IRepository<Session> sessionR)
         {
-            this.mapper = mapper;
-            this.placepriceR = placepriceR;
+            this.sessionR = sessionR;
         }
-        public async Task Create(PlacePriceDto placePrice)
+        public void Create(int SessionId)
         {
-            var place = new PP
+            if(sessionR.GetByID(SessionId).AvailablePlace > 0) 
             {
-                Id = placePrice.Id,
-                IsReserved = true,
-                PlaceId = placePrice.PlaceId,
-                SessionId = placePrice.SessionId,
-                Price = placePrice.Price,
-            };
-            if(placepriceR.GetByID(placePrice.Id).IsReserved == true)
-                throw new HttpException(Errors.PlaceIsReserved, System.Net.HttpStatusCode.BadRequest);
-            else
-            {
-                placepriceR.Update(mapper.Map<PP>(place));
-                placepriceR.Save(); 
-            }
+                sessionR.GetByID(SessionId).AvailablePlace--;
+            }   
         }
     }
 }

@@ -9,6 +9,6 @@ namespace BusinessLogic.Interfaces
 {
     public interface IReservationService
     {
-        Task Create(PlacePriceDto pPModel);
+        void Create(int SessionId);
     }
 }

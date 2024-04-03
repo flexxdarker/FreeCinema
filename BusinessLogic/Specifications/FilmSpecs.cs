@@ -21,7 +21,7 @@ namespace BusinessLogic.Specifications
                     .Include(x => x.Category);
             }
         }
-        internal class All : Specification<Film>
+        internal class All : Specification<Film>    
         {
             public All()
             {

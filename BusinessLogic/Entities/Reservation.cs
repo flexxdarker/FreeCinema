@@ -14,7 +14,7 @@ namespace BusinessLogic.Entities
         public string UserId { get; set; }
         public User? User { get; set; }
         public decimal TotalPrice { get; set; }
-        public int PlacePriceId { get; set; }
-        public PP? PlacePrice { get; set; }
+        public int PlaceId { get; set; }
+        public Place? Place { get; set; }
     }
 }

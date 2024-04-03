@@ -21,9 +21,9 @@ namespace FreeCinema.Controllers
 
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpPost]
-        public IActionResult Create([FromForm] PlacePriceDto placePrice)
+        public IActionResult Create([FromForm]  int CinemaHallId)
         {
-            reservationService.Create(placePrice);
+            reservationService.Create(CinemaHallId);
             return Ok();
         }
     }

@@ -18,14 +18,20 @@ namespace BusinessLogic.Services
     {
         private readonly IMapper mapper;
         private readonly IRepository<Session> sessionR;
-        public SessionService(IMapper mapper, IRepository<Session> sessionR)
+        private readonly IRepository<CinemaHall> hallR;
+        public SessionService(IMapper mapper, IRepository<Session> sessionR, IRepository<CinemaHall> hallR)
         {
             this.mapper = mapper;
             this.sessionR = sessionR;
+            this.hallR = hallR;
         }
-
+        public int GetSeats()
+        {
+            return hallR.GetAll().Count();
+        }
         public void Create(CreateSessionModel session)
         {
+            session.AvailablePlaces = GetSeats();
             sessionR.Insert(mapper.Map<Session>(sessionR));
             sessionR.Save();
         }

@@ -12,6 +12,7 @@ namespace BusinessLogic.DTOs
     {
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
+        public int AvailablePlace {  get; set; }
         public int FilmId { get; set; }
         public Film? Film{ get; set; }
         public int CinemaHallId { get; set; }

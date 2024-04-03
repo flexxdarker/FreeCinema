@@ -11,5 +11,6 @@ namespace BusinessLogic.DTOs
         public DateOnly Date { get; set; }
         public int FilmId { get; set; }
         public int CinemaHallId { get; set; }
+        public int AvailablePlaces { get; set; }
     }
 }
