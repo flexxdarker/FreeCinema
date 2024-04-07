@@ -14,10 +14,13 @@ namespace FreeCinema.Controllers
     {
         private readonly IFilmService filmService;
         private readonly ICategoryService categoryService;
+        private readonly ICompanyService companyService;
 
-        public FilmController(IFilmService filmService)
+        public FilmController(IFilmService filmService, ICategoryService categoryService, ICompanyService companyService)
         {
             this.filmService = filmService;
+            this.companyService = companyService;
+            this.categoryService = categoryService;
         }
 
         [HttpGet("all")]
@@ -29,6 +32,11 @@ namespace FreeCinema.Controllers
         public async Task<IActionResult> GetCategories()
         {
             return Ok(await categoryService.GetAll());
+        }
+        [HttpGet("companies")]
+        public async Task<IActionResult> GetCompanies()
+        {
+            return Ok(await companyService.GetAll());
         }
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get([FromRoute] int id)

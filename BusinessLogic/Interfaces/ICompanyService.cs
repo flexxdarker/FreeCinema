@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Interfaces
 {
-    public interface ICategoryService
+    public interface ICompanyService
     {
-        Task<IEnumerable<CategoryDto>> GetAll();
-        Task<IEnumerable<CategoryDto>> Get(IEnumerable<int> ids);
+        Task<IEnumerable<CompanyDto>> GetAll();
+        Task<IEnumerable<CompanyDto>> Get(IEnumerable<int> ids);
     }
 }

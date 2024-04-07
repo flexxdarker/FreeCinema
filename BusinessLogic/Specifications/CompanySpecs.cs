@@ -10,16 +10,16 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BusinessLogic.Specifications
 {
-    public class CategorySpecs
+    internal class CompanySpecs
     {
-        internal class All : Specification<Category>
+        internal class All : Specification<Company>
         {
             public All()
             {
-                Query.Include(x => x.Films);    
+                Query.Include(x => x.Films);
             }
         }
-        internal class ByIds : Specification<Category>
+        internal class ByIds : Specification<Company>
         {
             public ByIds(IEnumerable<int> ids)
             {
