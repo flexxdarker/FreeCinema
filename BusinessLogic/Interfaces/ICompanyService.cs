@@ -9,7 +9,7 @@ namespace BusinessLogic.Interfaces
 {
     public interface ICompanyService
     {
-        Task<IEnumerable<CompanyDto>> GetAll();
+        IEnumerable<CompanyDto> GetAll();
         Task<IEnumerable<CompanyDto>> Get(IEnumerable<int> ids);
     }
 }

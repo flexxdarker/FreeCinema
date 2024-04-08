@@ -69,5 +69,5 @@ namespace BusinessLogic.Services
         {
             return mapper.Map<List<FilmDto>>(await filmR.GetListBySpec(new FilmSpecs.All()));
         }
-    }
+    } 
 }

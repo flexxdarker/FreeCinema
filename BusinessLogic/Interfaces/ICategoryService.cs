@@ -9,7 +9,7 @@ namespace BusinessLogic.Interfaces
 {
     public interface ICategoryService
     {
-        Task<IEnumerable<CategoryDto>> GetAll();
+        IEnumerable<CategoryDto> GetAll();
         Task<IEnumerable<CategoryDto>> Get(IEnumerable<int> ids);
     }
 }

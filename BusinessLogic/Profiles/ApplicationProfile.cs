@@ -29,6 +29,12 @@ namespace BusinessLogic.Profiles
                 .ForMember(x => x.Film, opt => opt.Ignore());
             CreateMap<Session, SessionDto>();
             CreateMap<CreateSessionModel, Session>();
+
+            CreateMap<Category, CategoryDto>();
+            CreateMap<CategoryDto, Category>();
+
+            CreateMap<Company, CompanyDto>();
+            CreateMap<CompanyDto, Company>();
         }
     }
 }

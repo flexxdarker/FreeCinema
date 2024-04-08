@@ -10,7 +10,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BusinessLogic.Specifications
 {
-    public class CategorySpecs
+    internal class CategorySpecs
     {
         internal class All : Specification<Category>
         {

@@ -16,10 +16,10 @@ namespace BusinessLogic.Services
 {
     internal class CategoryService : ICategoryService
     {
-        private readonly Mapper mapper;
+        private readonly IMapper mapper;
         private readonly IRepository<Category> categoryR;
 
-        public CategoryService(Mapper mapper, IRepository<Category> categoryR)
+        public CategoryService(IMapper mapper, IRepository<Category> categoryR)
         {
             this.mapper = mapper;
             this.categoryR = categoryR;
@@ -30,9 +30,9 @@ namespace BusinessLogic.Services
             return mapper.Map<List<CategoryDto>>(await categoryR.GetListBySpec(new CategorySpecs.ByIds(ids)));
         }
 
-        public async Task<IEnumerable<CategoryDto>> GetAll()
+        public IEnumerable<CategoryDto> GetAll()
         {
-            return mapper.Map<List<CategoryDto>>(await categoryR.GetListBySpec(new CategorySpecs.All()));
+            return mapper.Map<List<CategoryDto>>(categoryR.GetAll());
         }
     }
 }

@@ -29,14 +29,14 @@ namespace FreeCinema.Controllers
             return Ok(await filmService.GetAll());
         }
         [HttpGet("categories")]
-        public async Task<IActionResult> GetCategories()
+        public IActionResult GetCategories()
         {
-            return Ok(await categoryService.GetAll());
+            return Ok( categoryService.GetAll());
         }
         [HttpGet("companies")]
-        public async Task<IActionResult> GetCompanies()
+        public IActionResult GetCompanies()
         {
-            return Ok(await companyService.GetAll());
+            return Ok(companyService.GetAll());
         }
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get([FromRoute] int id)

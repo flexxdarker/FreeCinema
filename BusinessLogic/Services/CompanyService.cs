@@ -28,9 +28,9 @@ namespace BusinessLogic.Services
             return mapper.Map<List<CompanyDto>>(await companyR.GetListBySpec(new CompanySpecs.ByIds(ids)));
         }
 
-        public async Task<IEnumerable<CompanyDto>> GetAll()
+        public IEnumerable<CompanyDto> GetAll()
         {
-            return mapper.Map<List<CompanyDto>>(await companyR.GetListBySpec(new CompanySpecs.All()));
+            return mapper.Map<List<CompanyDto>>(companyR.GetAll());
         }
     }
 }
